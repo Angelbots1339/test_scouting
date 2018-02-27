@@ -10,16 +10,16 @@ module.exports = {
         }
 
         if (typeof (arr[1]) === 'string') {
-            res = str.slice(0, 1);
+            res = `${arr[0]} ${str.slice(1)}`;
         }
         else if (typeof (arr[2]) === 'string') {
-            res = str.slice(0, 2);
+            res = `${arr[0]}${arr[1]} ${str.slice(2)}`;
         }
         else if (typeof (arr[3]) === 'string') {
-            res = str.slice(0, 3);
+            res = `${arr[0]}${arr[1]}${arr[2]} ${str.slice(3)}`;
         }
         else{
-            res = str.slice(0, 4);
+            res = `${arr[0]}${arr[1]}${arr[2]}${arr[3]} ${str.slice(4)}`;
         }
 
         //this one is just a precaution

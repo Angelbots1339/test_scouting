@@ -23,7 +23,7 @@ request(url, function (err, resp, body) {
 
     // console.log(arr);
     arr.forEach(teamDumb => {
-        let team = splitStr.split(teamDumb);
+        let team = splitStr.split(teamDumb).replace('/', ':');
 
         if (!fs.existsSync('teams/')) {
             fs.mkdirSync('teams/');
