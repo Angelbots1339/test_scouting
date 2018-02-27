@@ -2,9 +2,11 @@ const fs = require('fs');
 const request = require('request');
 const cheerio = require('cheerio');
 const splitStr = require('./split_team_number.js');
+const eventData = require('./event_data.json');
 
 let event = process.env.EVENT;
-let url = `https://www.thebluealliance.com/event/${event}`;
+let eventCode = eventData[event];
+let url = `https://www.thebluealliance.com/event/${eventCode}`;
 let arr = [];
 
 request(url, function (err, resp, body) {
@@ -22,13 +24,14 @@ request(url, function (err, resp, body) {
     // console.log(arr);
     arr.forEach(teamDumb => {
         let team = splitStr.split(teamDumb);
-        
-        if(!fs.existsSync('teams/')){
+
+        if (!fs.existsSync('teams/')) {
             fs.mkdirSync('teams/');
         }
         if (!fs.existsSync(`teams/${event}/`)) {
             fs.mkdirSync(`teams/${event}/`);
         }
+
         let dir = (`teams/${event}/${team}/`);
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
