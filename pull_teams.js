@@ -12,7 +12,7 @@ let arr = [];
 request(url, function (err, resp, body) {
     let tempArr = [];
     $ = cheerio.load(body);
-    links = $('[href^="/team/"]'); //use your CSS selector here
+    links = $('[href^="/team/"]');
     $(links).each(function (i, link) {
         tempArr.push($(link).text());
     });
@@ -23,7 +23,7 @@ request(url, function (err, resp, body) {
 
     // console.log(arr);
     arr.forEach(teamDumb => {
-        let team = splitStr.split(teamDumb).replace('/', ':');
+        let team = splitStr.split(teamDumb).replace(':', ';').replace('/', ':');
 
         if (!fs.existsSync('teams/')) {
             fs.mkdirSync('teams/');
