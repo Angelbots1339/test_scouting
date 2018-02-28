@@ -1,14 +1,12 @@
 const pug = require('pug');
 const fs = require('fs');
 
-let team = process.env.TEAM;
-let match = 'thisOne.json';
-let file = require(`../teams/${team}/average.json`);
-let pointAverage = file.score;
+let event = [process.env.EVENT];
+let teamdir = fs.readdirSync(`./teams/${event}`);
 
 let html = pug.renderFile('ui/home.pug', {
-    name: team,
-    pointAverage: pointAverage
+    teamDir: teamdir,
+    name: 'TEAMS'
 });
 
 fs.writeFileSync('ui/home.html', html, 'utf8');

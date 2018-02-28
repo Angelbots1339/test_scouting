@@ -1,4 +1,5 @@
 div
   h1 #{name}
   ul
-    li Average PPM: #{pointAverage}
+    each val in #{teamDir}
+      li= val
