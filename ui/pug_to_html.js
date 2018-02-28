@@ -1,7 +1,7 @@
 const pug = require('pug');
 const fs = require('fs');
 
-let event = [process.env.EVENT];
+let event = '2018utwv';
 let teamdir = fs.readdirSync(`./teams/${event}`);
 
 let html = pug.renderFile('ui/home.pug', {
