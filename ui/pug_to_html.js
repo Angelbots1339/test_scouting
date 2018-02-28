@@ -1,7 +1,7 @@
 const pug = require('pug');
 const fs = require('fs');
 
-let event = '2018utwv';
+let event = 'utah';
 let teamdir = fs.readdirSync(`./teams/${event}`);
 let teamlink
 
