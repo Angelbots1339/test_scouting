@@ -4,7 +4,7 @@ let json = {
 };
 
 josn = JSON.stringify(json);
-let teams = fs.readdirSync('./teams/utah/');
+let teams = fs.readdirSync('./teams/colorado/');
 teams.forEach(team => {
-    fs.writeFileSync(`./teams/utah/${team}/average.json`, josn, 'utf8');
+    fs.writeFileSync(`./teams/colorado/${team}/average.json`, josn, 'utf8');
 });
