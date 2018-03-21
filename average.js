@@ -1,22 +1,24 @@
 const fs = require('fs');
 
-let teams = fs.readdirSync('./teams');
 
-teams.forEach(team => {
-    let res = {
-        "score": 0
-    };
-
-    let matches = fs.readdirSync(`./teams/${team}/matches`);
-    let len = matches.length;
-    let s = res.score;
-
-    matches.forEach(match => {
-        let matchScore = require(`./teams/${team}/matches/${match}`).score;
-        s += matchScore;
-    });
-
-    res.score = s / len;
-    let json = JSON.stringify(res);
-    fs.writeFileSync(`./teams/${team}/average.json`, json, 'utf8');
-});
+module.exports = {
+    average: function (team, event) {
+        console.log('HERE');
+        let newData = {
+            "count": 0,
+            "points": 0,
+            "cubes": 0
+        };
+        let allData = fs.readdirSync(`./teams/${event}/${team}/matches/`);
+        allData.forEach(dataName => {
+            let data = require(`./teams/${event}/${team}/matches/${dataName}`);
+            newData.points += data.points;
+            newData.cubes += data.cubes;
+            newData.count++
+        });
+        newData.points /= newData.count;
+        newData.cubes /= newData.count;
+        let json = JSON.stringify(newData);
+        fs.writeFileSync(`./teams/${event}/${team}/average.json`, json, 'utf8');
+    }
+};
