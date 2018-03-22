@@ -9,7 +9,7 @@ newData.forEach(match => {
     let data = require(`../new_data/${match}`);
     let team = data.teamName;
     event = data.eventName;
-    let stats = data.stats;
+    let stats = data;
     let matchNum = data.match;
     let json = JSON.stringify(stats);
     fs.writeFileSync(`./teams/${event}/${team}/matches/${match}.json`, json, 'utf8');
