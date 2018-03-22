@@ -1,0 +1,3 @@
+node filljson.js
+node average.js
+node write_html.js
