@@ -11,7 +11,7 @@ teamdir.forEach(team => {
     }
     let dataJson = require(`./teams/${event}/${team}/average.json`);
     let cubes = `Average Cubes: ${dataJson.cubes}`;
-    let auto = `Average Cubes: ${dataJson.auto}`;
+    let auto = `Average Auto Completion: ${dataJson.auto}`;
     let html = pug.renderFile('ui/writehtml.pug', {
         name: team,
         points: points,
