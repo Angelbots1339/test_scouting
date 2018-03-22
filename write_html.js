@@ -14,8 +14,8 @@ teamdir.forEach(team => {
     let auto = `Average Auto Completion: ${dataJson.auto}`;
     let html = pug.renderFile('ui/writehtml.pug', {
         name: team,
-        points: points,
-        cubes: cubes
+        cubes: cubes,
+        auto: auto
     });
 
     fs.writeFileSync(`./ui/${event}/${team}/data.html`, html, 'utf8');
