@@ -1,10 +1,22 @@
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(218, 29, 29); /* Green */
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: rgb(255, 255, 255);
+    padding: 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    vertical-align: middle;
+    border: 5px rgb(0, 0, 255);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.button:hover {
+    background-color: rgb(0, 0, 255); /* Green */
+    color: white;
+}
+a.inner {
+    width: 175px; 
+    height: 50px;
 }
