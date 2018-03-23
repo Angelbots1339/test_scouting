@@ -12,10 +12,12 @@ teamdir.forEach(team => {
     let dataJson = require(`./teams/${event}/${team}/average.json`);
     let cubes = `Average Cubes: ${dataJson.cubes}`;
     let auto = `Average Auto Completion: ${dataJson.auto}`;
+    let rating = `Average Driver's Rating (Out Of 5): ${dataJson.rating}`;
     let html = pug.renderFile('ui/writehtml.pug', {
         name: team,
         cubes: cubes,
-        auto: auto
+        auto: auto,
+        rating: rating
     });
 
     fs.writeFileSync(`./ui/${event}/${team}/data.html`, html, 'utf8');
