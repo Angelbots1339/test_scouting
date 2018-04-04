@@ -1,4 +1,7 @@
 cd ~/test_scouting/
 node filljson.js
 node average.js
-node write_html.js
+
+
+alias kill8000="kill -9 $(lsof -i TCP:8000 | grep LISTEN | awk '{print $2}')"
+node ui/hub/hub.js
