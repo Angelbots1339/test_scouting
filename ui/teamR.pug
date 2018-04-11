@@ -1,0 +1,12 @@
+html
+  head
+    link(rel='stylesheet', href='./style.css')
+
+  body
+    div
+      h1 #{event} teams
+      ul
+        - for (var val = 0; val < teamDir.length; val++)
+          - var link = `http://localhost:8000/${event}/${teamDir[val]}`;
+          button.button
+            a.inner(href=link) #{teamDir[val]}

@@ -9,11 +9,19 @@ const jsonParser = bodyParser.json();
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 const winston = require('winston');
 const path = require('path');
-const fill = require('../../../filljson.js');
+const fill = require('../../../lib/filljson.js');
+const teamR = require('../../../lib/teamR.js');
+const indexR = require('../../../lib/indexR.js');
 winston.level = process.env.LOG || 'info';
 
 router.get('/', function (req, res) {
+    indexR.render();
     res.sendFile(path.resolve('ui/hub/views/index.html'));
+});
+
+router.get('/:event', function (req, res) {
+    teamR.render(req.params.event);
+    res.sendFile(path.resolve(`ui/hub/views/${req.params.event}.html`));
 });
 
 
@@ -27,7 +35,7 @@ router.get('/:event/:team', function (req, res) {
     return res.status(200).send(teamData);
 });
 
-router.get('/dothething', function (req, res) {
+router.get('/do/the/thing', function (req, res) {
     fill.fill();
 });
 
