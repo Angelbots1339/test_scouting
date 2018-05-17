@@ -37,7 +37,7 @@ router.get('/:event/:team', function (req, res) {
 
 router.get('/do/the/thing', function (req, res) {
     fill.fill();
-    return status(200)
+    return res.status(200)
     .redirect('/');
 });
 
